@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 10px;
+            padding: 10px 10px;
+        }
+
+        #t1, #t2 {
+            background-color: cyan;
+        }
+
+        #t3 {
+            background-color: fuchsia;
+        }
+
+        .result {
+            padding: 0 0 0 40px;
+        }
+
+        .result>h1 {
+            display: inline;
+            color: blue;
+        }
+
+        .buttons {
+            padding: 0 0 0 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>THỰC HIỆN PHÉP TOÁN</h1>
+    <div class="form">
+        <div>Nhap a:</div>
+        <div><input id="t1" type="text" /></div>
+        <div>Nhap b:</div>
+        <div><input id="t2" type="text" /></div>
+    </div>
+    <div class="buttons">
+        <button onclick="t3.value = Tong(t1, t2)">a + b</button>
+        <button onclick="t3.value = Hieu(t1, t2)">a - b</button>
+        <button onclick="t3.value = Tich(t1, t2)">a * b</button>
+        <button onclick="t3.value = Thuong(t1, t2)">a / b</button>
+    </div>
+    <div class="result">
+        <h1>Ket qua</h1>
+        <input id="t3" type="text" />
+    </div>
+    <script>
+        function Tong(a, b) {
+            var c = parseInt(a.value) + parseInt(b.value);
+            return c;
+        }
+
+        function Hieu(a, b) {
+            var c = parseInt(a.value) - parseInt(b.value);
+            return c;
+        }
+
+        function Tich(a, b) {
+            var c = parseInt(a.value) * parseInt(b.value);
+            return c;
+        }
+
+        function Thuong(a, b) {
+            var c = parseInt(a.value) / parseInt(b.value);
+            return c;
+        }
+    </script>
+</body>
+
+</html>
