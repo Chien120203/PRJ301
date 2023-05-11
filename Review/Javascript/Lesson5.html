@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        display: flex;
+        justify-content: center;
+    }
+    tbody{
+        width: 70%;
+        border: 1px solid red;
+    }
+    h1{
+        text-align: center;
+        padding: 24px 0;
+        color: blue;
+    }
+    tr{
+        display: block;
+        margin: 24px 0;
+        width: 100%;
+    }
+    tr td:first-child{
+       width: 160px;
+       font-weight: 600;
+       color: blue;
+    }
+</style>
+<body>
+
+    <h1>THỰC HIỆN PHÉP TOÁN</h1>
+    <table >
+        <tr>
+            <td>Nhập n</td>
+            <td><input type="text" id="num"></td>
+            <td style="font-weight: 600; color: blue;">(1 < n < 100)</td>
+        </tr>
+        <tr>
+            <td>Chọn phép toán</td>
+            <td>
+                <select name="option" id="math" onchange="change(this)">
+                    <option value=""> -- Chọn -- </option>
+                    <option value="option1" >Tổng n số liên tiếp</option>
+                    <option value="option2" >Tính n!</option>
+                    <option value="option3" >In dãy lẻ</option>
+                    <option value="option4" >In dãy số chẵn</option>
+                    <option value="option5" >Kiểm tra số nguyên tố</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Kết quả</td>
+            <td><input type="text" id="result" value=""></td>
+            
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="Java.js"></script>
+</body>
+</html>
