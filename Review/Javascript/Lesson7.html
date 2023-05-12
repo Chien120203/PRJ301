@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registing</title>
+</head>
+<style>
+    table{
+        display: flex;
+        justify-content: center;
+    }
+    tbody {
+        display: block;
+        border: 1px solid red;
+        width: 30%;
+        overflow: hidden;
+    }
+    tr{
+        display: block;
+        margin: 8px 0;
+    }
+    .option td{
+        color: blue;
+    }
+    .option td:first-child{
+        width: 40%;
+    }
+
+    #running {
+        display: inline-block;    
+        white-space: nowrap;
+        overflow: hidden;
+        animation: marquee 7s linear infinite;
+      }
+
+      #running:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes marquee {
+        from {
+          transform: translateX(150%);
+        }
+
+        to {
+          transform: translateX(-150%);
+        }
+      }
+    
+</style>
+
+<body>
+    <table>
+        <tr style="display: flex; justify-content: center;">
+            <td style="color: blue;" >
+                    <h3 id="running">ĐĂNG KÝ THÀNH VIÊN</h3>
+            </td>
+        </tr>
+        <tr class="option">
+            <td>Tên truy cập:</td>
+            <td><input type="text" class="required" id="name">(*)</td>
+        </tr>
+        <tr class="option">
+            <td>Mật khẩu:</td>
+            <td><input type="password" class="required" id="pass">(*)</td>
+        </tr>
+        <tr class="option">
+            <td>Nhập lại mật khẩu:</td>
+            <td><input type="password" class="required" id="rePass">(*)</td>
+        </tr>
+        <tr class="option">
+            <td>Tên đầy đủ</td>
+            <td><input type="text" class="required" id="fullName">(*)</td>
+        </tr>
+        <tr class="option">
+            <td >Giới tính</td>
+            <td style="width: 35%;">
+                <select id="gender" onchange="chooseGender(this)">
+                    <option value=""> -- Chọn -- </option>
+                    <option value="male">Nam</option>
+                    <option value="female">Nữ</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="option">
+            <td>Email</td>
+            <td><input type="text" class="required" id="email">(*)</td>
+        </tr>
+        <tr class="option">
+            <td style="width: 42%;">Địa chỉ</td>
+            <td ><input style="width: 120%; height: 56px;" type="text" id="address"></td>
+        </tr>
+        <tr style="display: flex; justify-content: center;">
+            <td>
+                <input type="submit" value="Đăng ký" onclick="finish()">
+                <input type="submit" value="Thoát">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        
+        const running = document.querySelector("#running");
+        
+        running.addEventListener("mouseover", () => {
+            running.style.animationPlayState = "paused";
+        });
+        
+        running.addEventListener("mouseout", () => {
+            running.style.animationPlayState = "running";
+        });
+
+        function validEmail(email){
+            const isInvalidEmail = /^\S+@\S+\.\S+$/.test(email);
+            if(isInvalidEmail==false) {
+                
+                return false
+            }else return true
+        }
+        
+        function finish(){
+            let username = document.getElementById("name").value
+            let password = document.getElementById("pass").value
+            let rePassword = document.getElementById("rePass").value
+            let fullName = document.getElementById("fullName").value
+            let email = document.getElementById("email").value
+            const requirements = document.querySelectorAll(".required")
+            let isFormValid = true;
+            for(let i=0; i< requirements.length;i++){
+                if(!requirements[i].value){
+                    isFormValid = false
+                    break;
+                }
+            }
+
+            if(isFormValid==false) alert("You have to fill all fields!")
+            if(username.length >8) alert("Your username has to less than or equal 8 characters")
+            if(password.localeCompare(rePassword)!=0) alert("Your password has to be same in both of fields")
+            if(validEmail(email)===false) alert("Enter wrong email format: Not having whitespace and must have @ character")
+            else alert("Regist successfully")
+        }
+       
+
+    </script>
+</body>
+
+</html>
+
+
