@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 11</title>
+    <style>
+        p {
+            text-indent: 2em;
+            padding: 1em 10px;
+            border: solid purple;
+        }
+        .container {
+            border: solid purple;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form {
+            margin: 0 auto;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .buttons button {
+            margin: 1em 2px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Văn tế nghĩa sĩ Cần Giuộc thuộc ngôi đền thiêng liêng trong văn học. Cụ Đồ Chiểu chỉ là một nhà thơ mù, một người hát rong của nhân dân, một số tác phẩm cụ để lại mà tiêu biểu nhất là Văn tế nghĩa sĩ Cần Giuộc đã làm giàu cho văn học Việt Nam ở vào thời điểm thử thách khắc nghiệt nhất cho văn học và lịch sử đất nước.</p>
+    </div>
+    <div class="container">
+        <h2>THAY ĐỔI THUỘC TÍNH CỦA ĐOẠN VĂN TRÊN</h2>
+        <table class="form">
+            <tr>
+                <td><input type="text"></td>
+                <td><span>màu chữ</span></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><span>màu nền</span></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><span>cỡ chữ</span></td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><span>font chữ</span></td>
+            </tr>
+        </table>
+        <div class="buttons">
+            <button onclick="setStyle()">Thực hiện</button>
+            <button>Thoát</button>
+        </div>
+    </div>
+    <script>
+        function setStyle() {
+            let inputs = document.getElementsByTagName("input");
+            let p = document.getElementsByTagName("p")[0];
+            p.style.color = inputs[0].value;
+            p.style.backgroundColor = inputs[1].value;
+            p.style.fontSize = inputs[2].value;
+            p.style.fontFamily = inputs[3].value;
+        }
+    </script>
+</body>
+</html>
