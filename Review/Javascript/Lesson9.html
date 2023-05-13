@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 0px;
+        }
+
+        body>div {
+            border: solid #fd1efd;
+        }
+
+        .container {
+            padding: 0px 20px 20px 20px;
+        }
+
+        .container>div {
+            margin: 1em 0;
+        }
+
+        .a span {
+            display: block;
+            margin-bottom: 1em;
+        }
+
+        .a textarea {
+            margin: 0 3em;
+            overflow-y: scroll;
+        }
+
+        .b input {
+            background-color: #99ccff;
+        }
+
+        .c input:nth-child(4) {
+            background-color: #99ccff;
+        }
+
+        .d input:nth-child(4) {
+            background-color: #99ccff;
+        }
+
+        .e input:nth-child(7) {
+            background-color: #99ccff;
+        }
+
+        .buttons {
+            padding: 0 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>ĐỐI TƯỢNG STRING</h1>
+        <div class="container">
+            <div class="a">
+                <span>Nhập đoạn văn:</span>
+                <textarea name="text" id="text" cols="30" rows="5" oninput="calculate()"></textarea>
+            </div>
+            <div class="b">
+                <span>Tổng số ký tự:</span>
+                <input type="text" />
+            </div>
+            <hr>
+            <div class="c">
+                <span>Nhập vị trí</span><input oninput="getCharacter()" type="text" size="5">
+                <span>Ký tự tương ứng</span><input type="text" size="5">
+            </div>
+            <hr>
+            <div class="d">
+                <span>Nhập chuỗi</span><input oninput="findString()" type="text" size="5">
+                <span>Vị trí tương ứng</span><input type="text" size="5">
+            </div>
+            <hr>
+            <div class="e">
+                <span>Nhập vị trí cần tách</span>
+                <span>Từ:</span><input oninput="subString()" type="text" size="3">
+                <span>Đến</span><input oninput="subString()" type="text" size="3">
+                <span>Kết quả</span><input type="text" size="3">
+            </div>
+            <div class="buttons">
+                <button onclick="text.value=''">Nhập lại</button>
+                <button>Thoát</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            countCharacter();
+            getCharacter();
+        }
+        function countCharacter() {
+            let text = document.getElementById("text").value;
+            document.getElementsByClassName("b")[0].getElementsByTagName("input")[0].value = text.split("").length;
+        }
+        function getCharacter() {
+            let text = document.getElementById("text").value;
+            let inputs = document.getElementsByClassName("c")[0].getElementsByTagName("input");
+            let position = parseInt(inputs[0].value);
+            if (isNaN(position) || position <= 0 || position >= text.length) {
+                inputs[1].value = "";
+                return;
+            }
+            inputs[1].value = text.charAt(position);
+        }
+        function findString() {
+            let text = document.getElementById("text").value;
+            let inputs = document.getElementsByClassName("d")[0].getElementsByTagName("input");
+            let str = inputs[0].value;
+            if (str.length == 0) {
+                inputs[1].value = "";
+                return;
+            }
+            let position = text.indexOf(str)
+            if (position == -1) {
+                inputs[1].value = "";
+                return;
+            }
+            inputs[1].value = position;
+        }
+        function subString() {
+            let text = document.getElementById("text").value;
+            console.log(text);
+            let inputs = document.getElementsByClassName("e")[0].getElementsByTagName("input");
+            let pos1 = parseInt(inputs[0].value);
+            if (isNaN(pos1) || pos1 < 0 || pos1 >= text.length) {
+                inputs[2].value = "";
+                return;
+            }
+            let pos2 = parseInt(inputs[1].value);
+            if (isNaN(pos2) || pos2 < 0 || pos2 > text.length) {
+                inputs[2].value = "";
+                return;
+            }
+            inputs[2].value = text.substring(pos1, pos2);
+        }
+    </script>
+</body>
+
+</html>
