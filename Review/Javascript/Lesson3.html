@@ -14,72 +14,76 @@
         .form {
             display: grid;
             grid-template-columns: auto 1fr;
-            gap: 10px 10px;
-            padding: 10px 10px;
+            gap: 1em 0.5em;
+            padding: 1em 1em;
         }
 
-        #t1, #t2 {
-            background-color: cyan;
+        .form input {
+            background-color: #ccffff;
         }
 
         #t3 {
-            background-color: fuchsia;
+            background-color: #ffccff;
         }
 
         .result {
-            padding: 0 0 0 40px;
+            padding: 0.5em 3em;
         }
 
         .result>h1 {
             display: inline;
-            color: blue;
         }
 
         .buttons {
-            padding: 0 0 0 40px;
+            padding: 0.5em 3em;
+        }
+        .container {
+            border: solid blue;
         }
     </style>
 </head>
 
 <body>
-    <h1>THỰC HIỆN PHÉP TOÁN</h1>
-    <div class="form">
-        <div>Nhap a:</div>
-        <div><input id="t1" type="text" /></div>
-        <div>Nhap b:</div>
-        <div><input id="t2" type="text" /></div>
-    </div>
-    <div class="buttons">
-        <button onclick="t3.value = Tong(t1, t2)">a + b</button>
-        <button onclick="t3.value = Hieu(t1, t2)">a - b</button>
-        <button onclick="t3.value = Tich(t1, t2)">a * b</button>
-        <button onclick="t3.value = Thuong(t1, t2)">a / b</button>
-    </div>
-    <div class="result">
-        <h1>Ket qua</h1>
-        <input id="t3" type="text" />
-    </div>
-    <script>
-        function Tong(a, b) {
-            var c = parseInt(a.value) + parseInt(b.value);
-            return c;
-        }
+    <div class="container">
+        <h1>THỰC HIỆN PHÉP TOÁN</h1>
+        <div class="form">
+            <div>Nhập a:</div>
+            <div><input id="t1" type="text" /></div>
+            <div>Nhập b:</div>
+            <div><input id="t2" type="text" /></div>
+        </div>
+        <div class="buttons">
+            <button onclick="t3.value = Tong(t1, t2)">a + b</button>
+            <button onclick="t3.value = Hieu(t1, t2)">a - b</button>
+            <button onclick="t3.value = Tich(t1, t2)">a * b</button>
+            <button onclick="t3.value = Thuong(t1, t2)">a / b</button>
+        </div>
+        <div class="result">
+            <h1>Kết quả</h1>
+            <input id="t3" type="text" size="6"/>
+        </div>
+        <script>
+            function Tong(a, b) {
+                var c = parseInt(a.value) + parseInt(b.value);
+                return c;
+            }
 
-        function Hieu(a, b) {
-            var c = parseInt(a.value) - parseInt(b.value);
-            return c;
-        }
+            function Hieu(a, b) {
+                var c = parseInt(a.value) - parseInt(b.value);
+                return c;
+            }
 
-        function Tich(a, b) {
-            var c = parseInt(a.value) * parseInt(b.value);
-            return c;
-        }
+            function Tich(a, b) {
+                var c = parseInt(a.value) * parseInt(b.value);
+                return c;
+            }
 
-        function Thuong(a, b) {
-            var c = parseInt(a.value) / parseInt(b.value);
-            return c;
-        }
-    </script>
+            function Thuong(a, b) {
+                var c = parseInt(a.value) / parseInt(b.value);
+                return c;
+            }
+        </script>
+    </div>
 </body>
 
 </html>
