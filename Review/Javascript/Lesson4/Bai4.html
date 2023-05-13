@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lesson 4</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+
+        .form {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 10px;
+            padding: 10px 10px;
+        }
+        .form input {
+            background-color: #ccffff;
+        }
+
+        .buttons {
+            padding: 10px 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TÌM MAX VÀ TÌM MIN</h1>
+    <div class="form">
+        <div>Nhap a:</div>
+        <div><input id="a" type="text" /></div>
+        <div>Nhap b:</div>
+        <div><input id="b" type="text" /></div>
+        <div>Nhap c:</div>
+        <div><input id="c" type="text" /></div>
+        <div>Kết quả:</div>
+        <div><input id="result" type="text" /></div>
+    </div>
+    <div class="checks">
+        <input type="radio" checked="true" name="math"/><i>Tìm số lớn nhất</i>
+        <input type="radio" name="math"/><i>Tìm số nhỏ nhất</i>
+    </div>
+    <div class="buttons">
+        <button onclick="find(a,b,c,result)">Tìm</button>
+        <button onclick="remove(a,b,c,result)">Xóa</button>
+    </div>
+    <script src="Ham.js"></script>
+</body>
+
+</html>
