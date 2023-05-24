@@ -2,57 +2,59 @@
 <html>
 
 <head>
-    <title>Lesson 4</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        h1 {
-            color: blue;
-            text-align: center;
-        }
+	<title>Lesson 4</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		h1 {
+			color: blue;
+			text-align: center;
+		}
 
-        .form {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 10px 10px;
-            padding: 10px 10px;
-        }
-        .form input {
-            background-color: #ccffff;
-        }
+		form {
+			padding: 10px 10px;
+		}
 
-        .buttons {
-            padding: 10px 50px;
-        }
-        .container {
-            border: solid blue;
-            padding: 1em 1em
-        }
-    </style>
+		form input {
+			background-color: #ccffff;
+		}
+
+		button {
+			margin: 10px 50px;
+		}
+
+		.container {
+			border: solid blue;
+			padding: 1em 1em
+		}
+	</style>
 </head>
 
 <body>
-    <div class="container">
-    <h1>TÌM MAX VÀ TÌM MIN</h1>
-    <div class="form">
-        <div>Nhap a:</div>
-        <div><input id="a" type="text" /></div>
-        <div>Nhap b:</div>
-        <div><input id="b" type="text" /></div>
-        <div>Nhap c:</div>
-        <div><input id="c" type="text" /></div>
-        <div>Kết quả:</div>
-        <div><input id="result" type="text" /></div>
-    </div>
-    <div class="checks">
-        <label><input type="radio" checked="true" name="math"/><i>Tìm số nhỏ nhất</i></label>
-        <label><input type="radio" name="math"/><i>Tìm số lớn nhất</i></label>
-    </div>
-    <div class="buttons">
-        <button onclick="find(a,b,c,result)">Tìm</button>
-        <button onclick="remove(a,b,c,result)">Xóa</button>
-    </div>
-    <script src="Ham.js"></script></div>
+	<div class="container">
+		<h1>TÌM MAX VÀ TÌM MIN</h1>
+		<form action="/demo" method="post">
+			<table>
+				<tr>
+					<td>Nhập a:</td>
+					<td><input id="a" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Nhập b:</td>
+					<td><input id="b" type="text" /></td>
+				</tr>
+				<tr>
+					<td>Nhập c:</td>
+					<td><input id="c" type="text" /></td>
+				</tr>
+			</table>
+		</form>
+		<div class="operation">
+			<label><input type="radio" name="math" value="min" /><i>Tìm số nhỏ nhất</i></label>
+			<label><input type="radio" name="math" value="max" /><i>Tìm số lớn nhất</i></label>
+		</div>
+		<button type="submit">Tìm</button>
+	</div>
 </body>
 
 </html>
